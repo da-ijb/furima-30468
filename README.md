@@ -37,7 +37,7 @@
 ### Association
 
 -belongs_to :user
--has_many :order
+-has_many :orders
 -has_many :comments
 
 ## comments テーブル

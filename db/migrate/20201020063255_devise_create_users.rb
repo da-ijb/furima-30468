@@ -7,12 +7,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :email,               null: false, default: ""
       t.string :encrypted_password,  null: false, default: ""
 
-      t.string :nickname,            null: false 
-      t.string :last_name,           null: false 
-      t.string :first_name,          null: false
-      t.string :furigana_last_name,  null: false 
-      t.string :furigana_first_name, null: false 
-      t.date :birth_date,            null: false 
+      t.string :nickname,             null: false 
+      t.string :last_name,            null: false 
+      t.string :first_name,           null: false
+      t.string :furigana_last_name,   null: false 
+      t.string :furigana_first_name,  null: false 
+      t.date :birth_date,             null: false 
 
 
       ## Recoverable

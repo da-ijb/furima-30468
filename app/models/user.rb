@@ -21,5 +21,7 @@ class User < ApplicationRecord
     with_options format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i } do
     validates :password
     end     
-  end        
+  end 
+
+  has_many :items
 end

@@ -8,9 +8,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :name, :description, :categories_id, :states_id, :delivery_charges_id, :shipment_sources_id, :days_to_ships_id, :price, :image, presence: true
+  validates :name, :description, :category_id, :state_id, :delivery_charge_id, :shipment_source_id, :days_to_ship_id, :price, :image, presence: true
   
-  validates :categories_id, :states_id, :delivery_charges_id, :shipment_sources_id, :days_to_ships_id, numericality: { other_than: 1 }
+  validates :category_id, :state_id, :delivery_charge_id, :shipment_source_id, :days_to_ship_id, numericality: { other_than: 1 }
 
   validates :price, format: { with: /\A[0-9]+\z/ }
   validates_inclusion_of :price, in: 300..9999999 

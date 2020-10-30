@@ -1,11 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [:index, :create]
   def index
     @order_form = OrderForm.new
-    @item = Item.find(params[:item_id])
   end
   
   def create
-    @item = Item.find(params[:item_id])
     @order_form = OrderForm.new(order_params)
     if @order_form.valid?
       pay_item
@@ -15,6 +14,10 @@ class OrdersController < ApplicationController
       render action: :index
     end
   end 
+
+  def set_order
+    @item = Item.find(params[:item_id])
+  end  
   
   private
   def order_params

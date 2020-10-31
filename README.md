@@ -26,18 +26,18 @@
 | ------------------- | ---------- | ------------------------------ |
 | name                | string     | null: false                    |
 | description         | text       | null: false                    |
-| categories_id       | integer    | null: false                    |
-| states_id           | integer    | null: false                    |
-| delivery_charges_id | integer    | null: false                    |
-| shipment_sources_id | integer    | null: false                    |
-| days_to_ships_id    | integer    | null: false                    |
+| category_id         | integer    | null: false                    |
+| state_id            | integer    | null: false                    |
+| delivery_charge_id  | integer    | null: false                    |
+| shipment_source_id  | integer    | null: false                    |
+| days_to_ship_id     | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
 
 -belongs_to :user
--has_many :orders
+-has_one :order
 -has_many :comments
 
 ## comments テーブル
@@ -66,7 +66,7 @@
 -belongs_to :item
 -has_one :street_address
 
-## street_address テーブル
+## street_addresses テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -76,6 +76,7 @@
 | address       | string     | null: false                    |
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
+| order         | references | null: false, foreign_key: true |
 
 ###Association
 

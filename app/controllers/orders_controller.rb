@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :set_order, only: [:index, :create]
   def index
     @order_form = OrderForm.new
@@ -17,6 +18,11 @@ class OrdersController < ApplicationController
 
   def set_order
     @item = Item.find(params[:item_id])
+    if current_user == @item.user
+      redirect_to root_path
+    elsif @item.order
+      redirect_to root_path
+    end  
   end  
   
   private

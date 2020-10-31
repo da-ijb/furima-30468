@@ -8,7 +8,7 @@ FactoryBot.define do
   municipality  { '大阪市北区' }
   address       { '大阪1-1-1' }
   building_name { '大阪ビル303' }
-  phone_number  { Faker::Number.number }
+  phone_number  { '09012345678' }
   token {"tok_abcdefghijk00000000000000000"}
   end
 end    

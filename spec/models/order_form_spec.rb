@@ -6,6 +6,10 @@ RSpec.describe OrderForm, type: :model do
       @order_form = FactoryBot.build(:order_form)
     end
 
+    it "全ての情報があれば保存ができること" do
+      expect(@order_form).to be_valid
+    end
+
     it "tokenが空では登録できないこと" do
       @order_form.token = nil
       @order_form.valid?
@@ -31,9 +35,9 @@ RSpec.describe OrderForm, type: :model do
     end  
     
     it 'prefecture_idが空だと保存できないこと' do
-      @order_form.prefecture_id = 1
+      @order_form.prefecture_id = nil
       @order_form.valid?
-      expect(@order_form.errors.full_messages).to include("Prefecture must be other than 1")  
+      expect(@order_form.errors.full_messages).to include("Prefecture can't be blank")  
     end  
     
     it 'prefecture_idが1だと保存できないこと' do
